@@ -1544,3 +1544,234 @@ select.input {
     animation: none !important;
   }
 }
+
+/* Premium logo-led auth refinement */
+.authHero {
+  grid-template-columns: minmax(0, 1.12fr) minmax(360px, 0.88fr);
+  gap: 28px;
+  align-items: stretch;
+  min-height: min(84vh, 920px);
+}
+
+.authHero::before {
+  content: '';
+  position: absolute;
+  inset: -8% -6%;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 16% 26%, rgba(255, 255, 255, 0.08) 0%, transparent 20%),
+    radial-gradient(circle at 80% 18%, rgba(250, 204, 21, 0.1) 0%, transparent 18%),
+    radial-gradient(circle at 64% 82%, rgba(59, 130, 246, 0.12) 0%, transparent 22%);
+  filter: blur(10px);
+}
+
+.authBrandPanel {
+  min-height: 100%;
+  align-content: space-between;
+  justify-content: center;
+  border-radius: 34px;
+  overflow: hidden;
+  transform: translateZ(0);
+}
+
+.authBrandPanel::before,
+.authBrandPanel::after {
+  content: '';
+  position: absolute;
+  border-radius: 999px;
+  pointer-events: none;
+  filter: blur(2px);
+}
+
+.authBrandPanel::before {
+  top: -54px;
+  right: -42px;
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.32), rgba(245, 158, 11, 0));
+  animation: authFloatTwo 11s ease-in-out infinite;
+}
+
+.authBrandPanel::after {
+  left: -56px;
+  bottom: -46px;
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.24), rgba(59, 130, 246, 0));
+  animation: authFloatOne 12s ease-in-out infinite;
+}
+
+.authBrandRow {
+  align-items: center;
+}
+
+.authMark {
+  width: min(100%, 420px);
+  min-width: 220px;
+  padding: 16px 18px;
+  border-radius: 28px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.03)),
+    rgba(255, 255, 255, 0.02);
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow:
+    0 22px 46px rgba(0, 0, 0, 0.24),
+    0 0 0 1px rgba(255, 255, 255, 0.03) inset;
+}
+
+.authLogo {
+  animation: logoFloat 7.5s ease-in-out infinite, logoGlow 5.5s ease-in-out infinite alternate;
+}
+
+.authFeatureGrid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.authFeatureCard {
+  min-height: 170px;
+  background:
+    linear-gradient(180deg, rgba(12, 18, 30, 0.94), rgba(7, 10, 16, 0.98)),
+    rgba(255, 255, 255, 0.02);
+}
+
+.authFeatureCard:hover {
+  transform: translateY(-6px) scale(1.01);
+}
+
+.authChipRow .pill {
+  background: rgba(8, 11, 18, 0.92);
+  border-color: rgba(255, 255, 255, 0.14);
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.18),
+    0 0 0 1px rgba(255, 255, 255, 0.03) inset;
+}
+
+.authFormCard {
+  min-height: 100%;
+  justify-content: center;
+  border-radius: 34px;
+  background:
+    linear-gradient(180deg, rgba(11, 15, 24, 0.98), rgba(6, 8, 14, 0.99)),
+    rgba(255, 255, 255, 0.02);
+}
+
+.authFormCard::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 18% 14%, rgba(245, 158, 11, 0.12) 0%, transparent 24%),
+    radial-gradient(circle at 86% 28%, rgba(59, 130, 246, 0.16) 0%, transparent 22%);
+}
+
+.authFormCard .formCardHead {
+  position: relative;
+  z-index: 1;
+}
+
+.authFormCard .input {
+  background: rgba(8, 11, 18, 0.96);
+  border-color: rgba(148, 163, 184, 0.2);
+}
+
+.authFormCard .input:focus {
+  box-shadow:
+    0 0 0 4px rgba(59, 130, 246, 0.16),
+    0 0 0 1px rgba(245, 158, 11, 0.18);
+}
+
+.authFormCard .buttonPrimary {
+  background: linear-gradient(135deg, #2563eb 0%, #3b82f6 34%, #f59e0b 100%);
+  box-shadow:
+    0 18px 40px rgba(37, 99, 235, 0.26),
+    0 10px 24px rgba(245, 158, 11, 0.16);
+}
+
+.authFormCard .buttonPrimary:hover {
+  transform: translateY(-3px) scale(1.01);
+}
+
+.authFormCard .formHint {
+  color: #cbd5e1;
+}
+
+@keyframes logoGlow {
+  0% {
+    filter:
+      drop-shadow(0 12px 22px rgba(37, 99, 235, 0.22))
+      drop-shadow(0 0 18px rgba(245, 158, 11, 0.08));
+  }
+
+  100% {
+    filter:
+      drop-shadow(0 16px 30px rgba(37, 99, 235, 0.32))
+      drop-shadow(0 0 26px rgba(245, 158, 11, 0.14));
+  }
+}
+
+@media (max-width: 1180px) {
+  .authHero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .authFeatureGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 920px) {
+  .authFeatureGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .authHero {
+    gap: 18px;
+  }
+}
+
+@media (max-width: 720px) {
+  .authHero {
+    padding: 18px;
+    gap: 16px;
+  }
+
+  .authBrandPanel {
+    padding: 18px;
+    border-radius: 28px;
+  }
+
+  .authMark {
+    width: 100%;
+    max-width: 320px;
+    min-width: 0;
+  }
+
+  .authTitle {
+    font-size: clamp(2.2rem, 10vw, 3.5rem);
+  }
+
+  .authFormCard {
+    border-radius: 28px;
+  }
+
+  .authFeatureCard {
+    min-height: 150px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .authHero::before,
+  .authHero::after,
+  .authGlow,
+  .authGlowTwo,
+  .authGlowThree,
+  .authLogo,
+  .authBrandPanel::before,
+  .authBrandPanel::after,
+  .authBrandPanel,
+  .authFormCard {
+    animation: none !important;
+  }
+}
