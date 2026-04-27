@@ -733,12 +733,12 @@ export default function DashboardClient() {
               className={`${styles.formCard} ${styles.authFormCard}`}
               onSubmit={handleLogin}
               style={{
-                width: 'min(100%, 380px)',
+                width: 'min(100%, 180px)',
                 padding: 0,
                 borderRadius: '28px',
                 overflow: 'hidden',
-                transform: 'perspective(1300px) rotateX(4deg) rotateY(-3deg)',
-                boxShadow: '0 28px 68px rgba(30, 64, 175, 0.22), 0 14px 24px rgba(15, 23, 42, 0.10)',
+                transform: 'perspective(1200px) rotateX(3deg) rotateY(-2deg)',
+                boxShadow: '0 24px 56px rgba(30, 64, 175, 0.18), 0 12px 20px rgba(15, 23, 42, 0.08)',
                 background: 'transparent',
                 border: 'none',
               }}
@@ -750,7 +750,7 @@ export default function DashboardClient() {
                   alignItems: 'center',
                   gap: '10px',
                   textAlign: 'center',
-                  padding: '18px 18px 14px',
+                  padding: '170px 24px 30px',
                   background: '#ffffff',
                   borderBottom: '1px solid rgba(15, 23, 42, 0.08)',
                 }}
@@ -763,7 +763,7 @@ export default function DashboardClient() {
                   priority
                   className={styles.authLogo}
                   style={{
-                    width: 'min(100%, 220px)',
+                    width: 'min(100%, 180px)',
                     height: 'auto',
                     objectFit: 'contain',
                     mixBlendMode: 'normal',
@@ -775,9 +775,9 @@ export default function DashboardClient() {
               <div
                 style={{
                   background: 'linear-gradient(180deg, #1d4ed8 0%, #2358ce 100%)',
-                  padding: '18px 18px 20px',
+                  padding: '0',
                   display: 'grid',
-                  gap: '16px',
+                  gap: '2px',
                 }}
               >
                 <div className={styles.formFields}>

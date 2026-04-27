@@ -1175,8 +1175,8 @@ select.input {
 .authFormCard {
   align-self: stretch;
   display: grid;
-  gap: 18px;
-  padding: clamp(28px, 4vw, 60px) clamp(24px, 4.5vw, 70px);
+  gap: 12px;
+  padding: clamp(18px, 3vw, 32px) clamp(18px, 3.2vw, 34px);
   border-radius: 0 34px 34px 0;
   background:
     linear-gradient(135deg, #1d4ed8 0%, #2256c8 42%, #2358ce 100%),
@@ -1263,7 +1263,7 @@ select.input {
 
 .authFormCard .input,
 .authFormCard .buttonPrimary {
-  min-height: 54px;
+  min-height: 46px;
 }
 
 .authFormCard .formCardHead p {
@@ -1408,7 +1408,7 @@ select.input {
 
   .authFormCard .input,
   .authFormCard .buttonPrimary {
-    min-height: 52px;
+    min-height: 44px;
   }
 }
 
