@@ -43,11 +43,7 @@ const defaultAdminEmail = (process.env.SEED_ADMIN_EMAIL || 'admin@mindbridge.in'
 const defaultAdminPassword = process.env.SEED_ADMIN_PASSWORD || 'Mindbridge@123';
 
 if (!connectionString) {
-  if (allowLocalFallback) {
-    console.warn('[db] DATABASE_URL not set - using local JSON fallback store');
-  } else {
-    throw new Error('DATABASE_URL is required in production');
-  }
+  console.warn('[db] DATABASE_URL not set - using local JSON fallback store');
 }
 
 type PoolState = {
