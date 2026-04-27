@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { cloneElement, isValidElement, useEffect, useMemo, useState, type FormEvent, type ReactElement, type ReactNode } from 'react';
 import styles from './dashboard-client.module.css';
 
@@ -714,16 +715,70 @@ export default function DashboardClient() {
     return (
       <main className={styles.page}>
         <div className={styles.shell}>
-          <section className={styles.formCard}>
-            <div className={styles.sectionHeader}>
-              <p className={styles.eyebrow}>Mindbridge Industries</p>
-              <h1 className={styles.title}>Sign in to MBI Opportunities Hub</h1>
-              <p className={styles.description}>
-                Login first to unlock approvals, imports, pending users, and admin actions.
+          <section className={styles.authHero}>
+            <div className={styles.authGlow} aria-hidden="true" />
+            <div className={styles.authGlowTwo} aria-hidden="true" />
+            <div className={styles.authGlowThree} aria-hidden="true" />
+
+            <div className={styles.authBrandPanel}>
+              <div className={styles.authBrandRow}>
+                <div className={styles.authMark} aria-hidden="true">
+                  <Image
+                    src="/mindbridge-logo.svg"
+                    alt=""
+                    width={1200}
+                    height={420}
+                    priority
+                    className={styles.authLogo}
+                  />
+                </div>
+
+                <div className={styles.authBrandCopy}>
+                  <p className={styles.authEyebrow}>Mindbridge Innovations</p>
+                  <h1 className={styles.authTitle}>MBI Opportunities Hub</h1>
+                  <p className={styles.authSubtitle}>
+                    A premium operations gateway for approvals, imports, and protected admin workflows.
+                  </p>
+                </div>
+              </div>
+
+              <p className={styles.authDescription}>
+                Login first to unlock the dashboard. The experience is designed to feel fast, premium, responsive, and
+                motion-rich on every screen size.
               </p>
+
+              <div className={styles.authFeatureGrid}>
+                <article className={styles.authFeatureCard}>
+                  <span className={styles.authFeatureIndex}>01</span>
+                  <strong>Single sign-in first</strong>
+                  <p>Keep the first screen focused on access so the rest of the app stays out of the way.</p>
+                </article>
+                <article className={styles.authFeatureCard}>
+                  <span className={styles.authFeatureIndex}>02</span>
+                  <strong>Live operations control</strong>
+                  <p>Approvals, imports, and session tools unlock immediately after authentication.</p>
+                </article>
+                <article className={styles.authFeatureCard}>
+                  <span className={styles.authFeatureIndex}>03</span>
+                  <strong>Responsive motion design</strong>
+                  <p>Blue, orange, and gold accents create a polished company-branded entrance on mobile and desktop.</p>
+                </article>
+              </div>
+
+              <div className={styles.authChipRow}>
+                <Pill tone="warning">Golden trust</Pill>
+                <Pill tone="info">Blue intelligence</Pill>
+                <Pill tone="success">Orange momentum</Pill>
+              </div>
             </div>
 
-            <form className={styles.formGrid} onSubmit={handleLogin}>
+            <form className={`${styles.formCard} ${styles.authFormCard}`} onSubmit={handleLogin}>
+              <div className={styles.formCardHead}>
+                <span className={styles.formBadge}>Admin access</span>
+                <h3>Sign in to continue</h3>
+                <p>Authenticate first to reveal the dashboard and unlock the protected workflow tools.</p>
+              </div>
+
               <div className={styles.formFields}>
                 <Field label="Email address" hint="Used as the login identity">
                   <input
@@ -752,7 +807,7 @@ export default function DashboardClient() {
                 <button type="submit" className={styles.buttonPrimary} disabled={busyAction === 'login'}>
                   {busyAction === 'login' ? 'Signing in…' : 'Sign in'}
                 </button>
-                <span className={styles.formHint}>Sign in first to reveal the dashboard.</span>
+                <span className={styles.formHint}>Your session stays saved in this browser.</span>
               </div>
             </form>
           </section>

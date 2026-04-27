@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" role="img" aria-labelledby="title desc">
+  <title id="title">Mindbridge Innovations logo</title>
+  <desc id="desc">Blue gradient MBI wordmark with Mindbridge Innovations text</desc>
+  <defs>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4f8dff"/>
+      <stop offset="45%" stop-color="#2d66e6"/>
+      <stop offset="100%" stop-color="#1c46bf"/>
+    </linearGradient>
+    <linearGradient id="shineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8fc1ff" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.35"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#1d4ed8" flood-opacity="0.25"/>
+    </filter>
+    <filter id="blurGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0.10 0 1 0 0 0.30 0 0 1 0 0.90 0 0 0 0.55 0"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="420" fill="none"/>
+
+  <g transform="translate(42 54)">
+    <g filter="url(#blurGlow)" opacity="0.75">
+      <circle cx="392" cy="72" r="34" fill="#4f8dff"/>
+      <circle cx="392" cy="72" r="18" fill="#9fc0ff"/>
+    </g>
+
+    <g filter="url(#softShadow)">
+      <path d="M36 118c0-8 6-14 14-14h28c8 0 14 6 14 14v142c0 14 10 24 24 24h46c14 0 24-10 24-24v-74c0-14 10-24 24-24h38c14 0 24 10 24 24v74c0 14 10 24 24 24h26c14 0 24-10 24-24V118c0-8 6-14 14-14h31c8 0 14 6 14 14v142c0 40-30 72-68 72h-23c-31 0-58-16-72-41-14 25-41 41-73 41h-43c-38 0-68-32-68-72V118z" fill="url(#blueGrad)"/>
+      <path d="M274 92h38c8 0 14 6 14 14v182c0 8-6 14-14 14h-38c-8 0-14-6-14-14V106c0-8 6-14 14-14z" fill="url(#blueGrad)"/>
+      <path d="M423 96h36c8 0 14 6 14 14v176c0 8-6 14-14 14h-36c-8 0-14-6-14-14V110c0-8 6-14 14-14z" fill="url(#blueGrad)"/>
+      <path d="M382 95c9 0 16 7 16 16v25c0 9-7 16-16 16h-25c-9 0-16-7-16-16v-25c0-9 7-16 16-16h25z" fill="#3f72ef"/>
+    </g>
+
+    <g opacity="0.98">
+      <g transform="translate(370 24)">
+        <rect x="14" y="0" width="12" height="28" rx="6" fill="url(#shineGrad)"/>
+        <rect x="14" y="94" width="12" height="28" rx="6" fill="url(#shineGrad)"/>
+        <rect x="0" y="14" width="28" height="12" rx="6" transform="rotate(-60 14 20)" fill="url(#shineGrad)"/>
+        <rect x="0" y="96" width="28" height="12" rx="6" transform="rotate(60 14 102)" fill="url(#shineGrad)"/>
+        <rect x="-22" y="48" width="28" height="12" rx="6" transform="rotate(18 0 54)" fill="url(#shineGrad)"/>
+        <rect x="18" y="48" width="28" height="12" rx="6" transform="rotate(-18 32 54)" fill="url(#shineGrad)"/>
+        <rect x="52" y="14" width="28" height="12" rx="6" transform="rotate(60 66 20)" fill="url(#shineGrad)"/>
+        <rect x="52" y="96" width="28" height="12" rx="6" transform="rotate(-60 66 102)" fill="url(#shineGrad)"/>
+      </g>
+    </g>
+  </g>
+
+  <g transform="translate(530 126)">
+    <text x="0" y="0" font-family="Inter, Arial, sans-serif" font-size="92" font-weight="800" letter-spacing="-3" fill="#09090b">MINDBRIDGE</text>
+    <text x="0" y="98" font-family="Inter, Arial, sans-serif" font-size="92" font-weight="800" letter-spacing="-3" fill="#09090b">INNOVATIONS</text>
+  </g>
+</svg>
