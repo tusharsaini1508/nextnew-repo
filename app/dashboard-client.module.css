@@ -926,3 +926,253 @@ select.input {
     width: 100%;
   }
 }
+
+/* Premium login-first theme overrides */
+.page {
+  background:
+    radial-gradient(circle at 12% 18%, rgba(249, 115, 22, 0.22) 0%, rgba(249, 115, 22, 0) 28%),
+    radial-gradient(circle at 86% 14%, rgba(59, 130, 246, 0.24) 0%, rgba(59, 130, 246, 0) 24%),
+    radial-gradient(circle at 62% 90%, rgba(250, 204, 21, 0.16) 0%, rgba(250, 204, 21, 0) 26%),
+    linear-gradient(180deg, #030406 0%, #0a0d14 56%, #040507 100%);
+  color: #f8fafc;
+}
+
+.shell {
+  max-width: 1280px;
+}
+
+.hero,
+.surfaceCard,
+.workspace,
+.formCard,
+.logPanel,
+.tableCard {
+  border-color: rgba(255, 255, 255, 0.08);
+  background:
+    linear-gradient(180deg, rgba(10, 14, 22, 0.94), rgba(6, 8, 14, 0.98)),
+    #07090d;
+  box-shadow:
+    0 22px 60px rgba(0, 0, 0, 0.42),
+    0 1px 0 rgba(255, 255, 255, 0.03) inset;
+}
+
+.hero::before,
+.surfaceCard::before,
+.workspace::before,
+.formCard::before,
+.logPanel::before,
+.tableCard::before {
+  background:
+    linear-gradient(135deg, rgba(249, 115, 22, 0.16), transparent 32%),
+    radial-gradient(circle at top right, rgba(59, 130, 246, 0.16), transparent 24%),
+    radial-gradient(circle at bottom left, rgba(250, 204, 21, 0.08), transparent 24%);
+  opacity: 1;
+}
+
+.kicker,
+.surfaceEyebrow,
+.sectionEyebrow,
+.formBadge,
+.heroNoteLabel {
+  color: #f59e0b;
+}
+
+.title,
+.sectionTitle,
+.surfaceTitle,
+.formCardHead h3,
+.statValue,
+.tableCellMain strong,
+.activityCopy strong,
+.tokenBox strong,
+.emptyState strong {
+  color: #fff7ed;
+  text-shadow: 0 0 24px rgba(249, 115, 22, 0.08);
+}
+
+.description,
+.sectionDescription,
+.surfaceDescription,
+.formCardHead p,
+.heroNote strong,
+.statHint,
+.fieldHint,
+.formHint,
+.tableFooter,
+.tokenBox span,
+.activityCopy p,
+.activityCopy span,
+.emptyState p,
+.codeBlock,
+.tableCell,
+.tableCellMain span {
+  color: #b7c4d7;
+}
+
+.heroNote,
+.emptyState,
+.tableWrap,
+.tableRow,
+.statCard,
+.tokenBox,
+.codeBlock,
+.activityItem,
+.activityPlaceholder {
+  border-color: rgba(148, 163, 184, 0.12);
+  background:
+    linear-gradient(180deg, rgba(15, 23, 42, 0.82), rgba(10, 14, 24, 0.92)),
+    #0b1020;
+}
+
+.statCard:hover,
+.surfaceCard:hover,
+.formCard:hover,
+.workspace:hover,
+.logPanel:hover,
+.tableCard:hover {
+  border-color: rgba(245, 158, 11, 0.34);
+  box-shadow:
+    0 24px 48px rgba(0, 0, 0, 0.34),
+    0 0 0 1px rgba(59, 130, 246, 0.08) inset;
+}
+
+.connectionPill,
+.pill {
+  border-color: rgba(255, 255, 255, 0.12);
+  background: rgba(8, 11, 18, 0.92);
+  color: #f8fafc;
+}
+
+.connectionPill[data-connected='true'] {
+  border-color: rgba(16, 185, 129, 0.24);
+}
+
+.connectionPill[data-connected='true'] .connectionDot {
+  background: #10b981;
+  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.22);
+}
+
+.pill_success,
+.activity_success .activityIcon {
+  background: rgba(16, 185, 129, 0.14);
+  color: #86efac;
+}
+
+.pill_warning,
+.activity_warning .activityIcon {
+  background: rgba(245, 158, 11, 0.14);
+  color: #fbbf24;
+}
+
+.pill_danger,
+.activity_danger .activityIcon {
+  background: rgba(239, 68, 68, 0.14);
+  color: #fca5a5;
+}
+
+.pill_info,
+.activity_info .activityIcon {
+  background: rgba(59, 130, 246, 0.14);
+  color: #93c5fd;
+}
+
+.heroNoteLabel {
+  background: rgba(245, 158, 11, 0.16);
+  color: #fbbf24;
+}
+
+.input {
+  border-color: rgba(148, 163, 184, 0.18);
+  background: rgba(8, 11, 18, 0.94);
+  color: #fff7ed;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.02) inset;
+}
+
+.input::placeholder {
+  color: #7b8798;
+}
+
+.input:focus {
+  border-color: rgba(59, 130, 246, 0.62);
+  box-shadow:
+    0 0 0 4px rgba(59, 130, 246, 0.14),
+    0 0 0 1px rgba(245, 158, 11, 0.14);
+  background: rgba(10, 14, 22, 0.98);
+}
+
+select.input {
+  background-image:
+    linear-gradient(45deg, transparent 50%, #f59e0b 50%),
+    linear-gradient(135deg, #f59e0b 50%, transparent 50%);
+}
+
+.buttonPrimary {
+  background: linear-gradient(135deg, #2563eb 0%, #0ea5e9 34%, #f59e0b 100%);
+  color: #ffffff;
+  box-shadow:
+    0 18px 40px rgba(37, 99, 235, 0.24),
+    0 8px 24px rgba(245, 158, 11, 0.16);
+}
+
+.buttonSecondary {
+  background: rgba(8, 11, 18, 0.92);
+  color: #fff7ed;
+  border-color: rgba(245, 158, 11, 0.28);
+}
+
+.buttonGhost {
+  background: transparent;
+  color: #93c5fd;
+  border-color: rgba(59, 130, 246, 0.22);
+}
+
+.buttonSecondarySmall {
+  background: rgba(8, 11, 18, 0.92);
+  color: #fff7ed;
+  border-color: rgba(245, 158, 11, 0.28);
+}
+
+.buttonGhostSmall {
+  background: transparent;
+  color: #93c5fd;
+  border-color: rgba(59, 130, 246, 0.22);
+}
+
+.errorBanner {
+  background: rgba(127, 29, 29, 0.42);
+  border-color: rgba(248, 113, 113, 0.28);
+  color: #fecaca;
+}
+
+.tableHead {
+  background: rgba(8, 11, 18, 0.96);
+  color: #f59e0b;
+  border-bottom-color: rgba(148, 163, 184, 0.12);
+}
+
+.tableRow {
+  background: rgba(10, 14, 22, 0.94);
+  border-top-color: rgba(148, 163, 184, 0.12);
+}
+
+.activityPlaceholder {
+  color: #cbd5e1;
+}
+
+.activityIcon {
+  background: rgba(59, 130, 246, 0.16);
+  box-shadow: 0 0 0 5px rgba(59, 130, 246, 0.07);
+}
+
+.codeBlock {
+  border-color: rgba(148, 163, 184, 0.12);
+}
+
+@media (max-width: 720px) {
+  .page {
+    background:
+      radial-gradient(circle at 10% 10%, rgba(249, 115, 22, 0.18) 0%, rgba(249, 115, 22, 0) 34%),
+      radial-gradient(circle at 90% 12%, rgba(59, 130, 246, 0.2) 0%, rgba(59, 130, 246, 0) 26%),
+      linear-gradient(180deg, #030406 0%, #0a0d14 100%);
+  }
+}
