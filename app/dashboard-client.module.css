@@ -1010,11 +1010,14 @@ select.input {
   text-align: center;
   padding: clamp(28px, 4vw, 60px);
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.99), rgba(249, 251, 255, 0.99)),
-    #ffffff;
+    linear-gradient(180deg, rgba(244, 247, 252, 0.72), rgba(237, 242, 251, 0.42)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0));
   border: none;
   border-radius: 34px 0 0 34px;
-  box-shadow: inset -1px 0 0 rgba(15, 23, 42, 0.06);
+  box-shadow:
+    inset -1px 0 0 rgba(15, 23, 42, 0.05),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(10px) saturate(1.05);
   z-index: 1;
 }
 
@@ -1031,7 +1034,7 @@ select.input {
   left: -86px;
   width: 220px;
   height: 220px;
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.16) 0%, rgba(59, 130, 246, 0) 72%);
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.12) 0%, rgba(59, 130, 246, 0) 72%);
 }
 
 .authBrandPanel::after {
@@ -1039,7 +1042,7 @@ select.input {
   bottom: -88px;
   width: 250px;
   height: 250px;
-  background: radial-gradient(circle, rgba(245, 158, 11, 0.16) 0%, rgba(245, 158, 11, 0) 72%);
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.12) 0%, rgba(245, 158, 11, 0) 72%);
 }
 
 .authBrandRow {

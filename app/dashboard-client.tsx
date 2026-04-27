@@ -751,7 +751,7 @@ export default function DashboardClient() {
                 }}
               >
                 <Image
-                  src="/mindbridge-logo.png"
+                    src="/mindbridge-logo.png"
                   alt="Mindbridge Innovations"
                   width={1200}
                   height={420}
@@ -761,7 +761,8 @@ export default function DashboardClient() {
                     width: 'min(100%, 260px)',
                     height: 'auto',
                     objectFit: 'contain',
-                    filter: 'drop-shadow(0 14px 28px rgba(30, 64, 175, 0.18))',
+                    mixBlendMode: 'multiply',
+                    filter: 'drop-shadow(0 14px 28px rgba(30, 64, 175, 0.12))',
                   }}
                 />
               </div>
