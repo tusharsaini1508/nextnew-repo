@@ -66,7 +66,10 @@ type ActivityEntry = {
 const USERS_PER_PAGE = 8;
 const STORAGE_KEY = 'mbi-opportunities-admin-token';
 
-const defaultLogin: LoginFormState = { email: '', password: '' };
+const defaultLogin: LoginFormState = {
+  email: 'sukhpreet22@gmail.com',
+  password: 'Skill#4343',
+};
 const defaultRegister: RegisterFormState = {
   name: '',
   email: '',
@@ -715,100 +718,96 @@ export default function DashboardClient() {
     return (
       <main className={styles.page}>
         <div className={styles.shell}>
-          <section
-            className={styles.authHero}
-            style={{
-              gridTemplateColumns: '1fr',
-              justifyItems: 'center',
-              alignItems: 'center',
-              minHeight: '100vh',
-              padding: 'clamp(16px, 4vw, 40px)',
-            }}
-          >
+          <section className={styles.authHero}>
             <div className={styles.authGlow} aria-hidden="true" />
             <div className={styles.authGlowTwo} aria-hidden="true" />
             <div className={styles.authGlowThree} aria-hidden="true" />
 
-            <form
-              className={`${styles.formCard} ${styles.authFormCard}`}
-              onSubmit={handleLogin}
-              style={{
-                width: 'min(100%, 180px)',
-                padding: 0,
-                borderRadius: '28px',
-                overflow: 'hidden',
-                transform: 'perspective(1200px) rotateX(3deg) rotateY(-2deg)',
-                boxShadow: '0 24px 56px rgba(30, 64, 175, 0.18), 0 12px 20px rgba(15, 23, 42, 0.08)',
-                background: 'transparent',
-                border: 'none',
-              }}
-            >
-              <div
-                style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  gap: '10px',
-                  textAlign: 'center',
-                  padding: '170px 24px 30px',
-                  background: '#ffffff',
-                  borderBottom: '1px solid rgba(15, 23, 42, 0.08)',
-                }}
-              >
-                <Image
-                  src="/mindbridge-logo.png"
-                  alt="Mindbridge Innovations"
-                  width={1200}
-                  height={420}
-                  priority
-                  className={styles.authLogo}
-                  style={{
-                    width: 'min(100%, 180px)',
-                    height: 'auto',
-                    objectFit: 'contain',
-                    mixBlendMode: 'normal',
-                    filter: 'none',
-                  }}
-                />
+            <aside className={styles.authBrandPanel}>
+              <div className={styles.authBrandRow}>
+                <div className={styles.authMark}>
+                  <Image
+                    src="/mindbridge-logo.png"
+                    alt="Mindbridge Innovations"
+                    width={1200}
+                    height={420}
+                    priority
+                    className={styles.authLogo}
+                  />
+                </div>
+
+                <div className={styles.authBrandCopy}>
+                  <span className={`${styles.kicker} ${styles.authEyebrow}`}>Admin access</span>
+                  <h1 className={styles.authTitle}>Sign in to the MBI Opportunities Hub</h1>
+                  <p className={styles.authSubtitle}>A polished control room for approvals, user imports, and API diagnostics.</p>
+                  <p className={styles.authDescription}>
+                    The admin session is preloaded with the seeded credentials below so you can sign in immediately and reach the
+                    protected dashboard without setup friction.
+                  </p>
+                </div>
+
+                <div className={styles.authFeatureGrid}>
+                  <article className={styles.authFeatureCard}>
+                    <span className={styles.authFeatureIndex}>01</span>
+                    <strong>Seeded admin access</strong>
+                    <p>Use the prefilled Mindbridge admin account to authenticate in one click.</p>
+                  </article>
+                  <article className={styles.authFeatureCard}>
+                    <span className={styles.authFeatureIndex}>02</span>
+                    <strong>Protected workflow</strong>
+                    <p>Login unlocks approvals, imports, and token-aware requests across the dashboard.</p>
+                  </article>
+                  <article className={styles.authFeatureCard}>
+                    <span className={styles.authFeatureIndex}>03</span>
+                    <strong>Clean system state</strong>
+                    <p>The UI restores a stable session and avoids the cramped broken layout from before.</p>
+                  </article>
+                </div>
+
+                <div className={styles.authChipRow}>
+                  <Pill tone="info">Admin ID: sukhpreet22@gmail.com</Pill>
+                  <Pill tone="success">Password prefilled</Pill>
+                  <Pill tone="neutral">Browser session token ready</Pill>
+                </div>
+              </div>
+            </aside>
+
+            <form className={`${styles.formCard} ${styles.authFormCard}`} onSubmit={handleLogin}>
+              <div className={styles.formCardHead}>
+                <span className={styles.formBadge}>Secure sign in</span>
+                <h3>Welcome back</h3>
+                <p>Use the seeded admin credentials to enter the operations dashboard and continue with the live API bridge.</p>
               </div>
 
-              <div
-                style={{
-                  background: 'linear-gradient(180deg, #1d4ed8 0%, #2358ce 100%)',
-                  padding: '0',
-                  display: 'grid',
-                  gap: '2px',
-                }}
-              >
-                <div className={styles.formFields}>
-                  <Field label="Email ID">
-                    <input
-                      className={styles.input}
-                      type="email"
-                      autoComplete="email"
-                      placeholder="admin@mindbridge.in"
-                      value={loginForm.email}
-                      onChange={(event) => setLoginForm((current) => ({ ...current, email: event.target.value }))}
-                    />
-                  </Field>
+              <div className={styles.formFields}>
+                <Field label="Email ID" hint="Prefilled with the admin account">
+                  <input
+                    className={styles.input}
+                    type="email"
+                    autoComplete="email"
+                    placeholder="sukhpreet22@gmail.com"
+                    value={loginForm.email}
+                    onChange={(event) => setLoginForm((current) => ({ ...current, email: event.target.value }))}
+                  />
+                </Field>
 
-                  <Field label="Password">
-                    <input
-                      className={styles.input}
-                      type="password"
-                      autoComplete="current-password"
-                      placeholder="Enter your password"
-                      value={loginForm.password}
-                      onChange={(event) => setLoginForm((current) => ({ ...current, password: event.target.value }))}
-                    />
-                  </Field>
-                </div>
+                <Field label="Password" hint="Prefilled for quick access">
+                  <input
+                    className={styles.input}
+                    type="password"
+                    autoComplete="current-password"
+                    placeholder="Skill#4343"
+                    value={loginForm.password}
+                    onChange={(event) => setLoginForm((current) => ({ ...current, password: event.target.value }))}
+                  />
+                </Field>
+              </div>
 
-                <div className={styles.formActions}>
-                  <button type="submit" className={styles.buttonPrimary} disabled={busyAction === 'login'}>
-                    {busyAction === 'login' ? 'Signing in…' : 'Sign in'}
-                  </button>
-                </div>
+              <div className={styles.formActions}>
+                <button type="submit" className={styles.buttonPrimary} disabled={busyAction === 'login'}>
+                  {busyAction === 'login' ? 'Signing in…' : 'Sign in'}
+                </button>
+                <span className={styles.formHint}>The session token is stored locally after sign in.</span>
               </div>
             </form>
           </section>

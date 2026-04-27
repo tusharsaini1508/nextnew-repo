@@ -39,8 +39,8 @@ const useSsl =
 const rejectUnauthorizedEnv = (process.env.DB_SSL_REJECT_UNAUTHORIZED || '').toLowerCase();
 const rejectUnauthorized = rejectUnauthorizedEnv === 'true';
 
-const defaultAdminEmail = (process.env.SEED_ADMIN_EMAIL || 'admin@mindbridge.in').trim().toLowerCase();
-const defaultAdminPassword = process.env.SEED_ADMIN_PASSWORD || 'Mindbridge@123';
+const defaultAdminEmail = (process.env.SEED_ADMIN_EMAIL || 'sukhpreet22@gmail.com').trim().toLowerCase();
+const defaultAdminPassword = process.env.SEED_ADMIN_PASSWORD || 'Skill#4343';
 
 if (!connectionString) {
   console.warn('[db] DATABASE_URL not set - using local JSON fallback store');
@@ -60,6 +60,8 @@ declare global {
   var __mbiDbInitPromise: Promise<void> | undefined;
   // eslint-disable-next-line no-var
   var __mbiAdminHash: string | undefined;
+  // eslint-disable-next-line no-var
+  var __mbiAdminHashSource: string | undefined;
 }
 
 const globalForDb = globalThis as typeof globalThis & {
@@ -67,6 +69,7 @@ const globalForDb = globalThis as typeof globalThis & {
   __mbiDbCache?: StoredUser[];
   __mbiDbInitPromise?: Promise<void>;
   __mbiAdminHash?: string;
+  __mbiAdminHashSource?: string;
 };
 
 const poolConfig: PoolConfig = {
@@ -124,9 +127,13 @@ async function ensureDir() {
 }
 
 async function getAdminPasswordHash() {
-  if (globalForDb.__mbiAdminHash) return globalForDb.__mbiAdminHash;
+  if (globalForDb.__mbiAdminHash && globalForDb.__mbiAdminHashSource === defaultAdminPassword) {
+    return globalForDb.__mbiAdminHash;
+  }
+
   const hash = await bcrypt.hash(defaultAdminPassword, 10);
   globalForDb.__mbiAdminHash = hash;
+  globalForDb.__mbiAdminHashSource = defaultAdminPassword;
   return hash;
 }
 
@@ -165,8 +172,53 @@ async function getSeedUsers(): Promise<StoredUser[]> {
   ];
 }
 
+async function syncSeedUsers(users: StoredUser[]) {
+  const seedUsers = await getSeedUsers();
+  let nextUsers = [...users];
+  let changed = false;
+
+  for (const seedUser of seedUsers) {
+    const normalizedSeed = normalizeStoredUser(seedUser);
+    const existingIndex = nextUsers.findIndex((entry) => entry.id === normalizedSeed.id);
+
+    if (existingIndex === -1) {
+      nextUsers.push(normalizedSeed);
+      changed = true;
+      continue;
+    }
+
+    const existing = normalizeStoredUser(nextUsers[existingIndex]);
+    const needsUpdate =
+      existing.email !== normalizedSeed.email ||
+      existing.password !== normalizedSeed.password ||
+      existing.name !== normalizedSeed.name ||
+      existing.role !== normalizedSeed.role ||
+      existing.dept !== normalizedSeed.dept ||
+      existing.phone !== normalizedSeed.phone ||
+      existing.status !== normalizedSeed.status ||
+      existing.avatar !== normalizedSeed.avatar ||
+      existing.color !== normalizedSeed.color;
+
+    if (needsUpdate) {
+      nextUsers[existingIndex] = normalizedSeed;
+      changed = true;
+    }
+  }
+
+  if (changed) {
+    await writeLocalUsers(nextUsers);
+    return globalForDb.__mbiDbCache || nextUsers;
+  }
+
+  return nextUsers;
+}
+
 async function readLocalUsers(): Promise<StoredUser[]> {
-  if (globalForDb.__mbiDbCache) return globalForDb.__mbiDbCache;
+  if (globalForDb.__mbiDbCache) {
+    const syncedUsers = await syncSeedUsers(globalForDb.__mbiDbCache);
+    globalForDb.__mbiDbCache = syncedUsers;
+    return syncedUsers;
+  }
 
   await ensureDir();
 
@@ -181,8 +233,10 @@ async function readLocalUsers(): Promise<StoredUser[]> {
         : [];
 
     if (users.length > 0) {
-      globalForDb.__mbiDbCache = users.map(normalizeStoredUser);
-      return globalForDb.__mbiDbCache;
+      const normalizedUsers = users.map(normalizeStoredUser);
+      const syncedUsers = await syncSeedUsers(normalizedUsers);
+      globalForDb.__mbiDbCache = syncedUsers;
+      return syncedUsers;
     }
   } catch {
     // fall through to seed
