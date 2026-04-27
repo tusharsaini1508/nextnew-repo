@@ -715,72 +715,59 @@ export default function DashboardClient() {
     return (
       <main className={styles.page}>
         <div className={styles.shell}>
-          <section className={styles.authHero}>
+          <section
+            className={styles.authHero}
+            style={{
+              gridTemplateColumns: '1fr',
+              justifyItems: 'center',
+              alignItems: 'center',
+              minHeight: '100vh',
+              padding: 'clamp(16px, 4vw, 40px)',
+            }}
+          >
             <div className={styles.authGlow} aria-hidden="true" />
             <div className={styles.authGlowTwo} aria-hidden="true" />
             <div className={styles.authGlowThree} aria-hidden="true" />
 
-            <div className={styles.authBrandPanel}>
-              <div className={styles.authBrandRow}>
-                <div className={styles.authMark} aria-hidden="true">
-                  <Image
-                    src="/mindbridge-logo.png"
-                    alt=""
-                    width={1200}
-                    height={420}
-                    priority
-                    className={styles.authLogo}
-                  />
-                </div>
-
-                <div className={styles.authBrandCopy}>
-                  <p className={styles.authEyebrow}>Mindbridge Innovations</p>
-                  <h1 className={styles.authTitle}>MBI Opportunities Hub</h1>
-                  <p className={styles.authSubtitle}>
-                    A premium operations gateway for approvals, imports, and protected admin workflows.
-                  </p>
-                </div>
-              </div>
-
-              <p className={styles.authDescription}>
-                Login first to unlock the dashboard. The experience is designed to feel fast, premium, responsive, and
-                motion-rich on every screen size.
-              </p>
-
-              <div className={styles.authFeatureGrid}>
-                <article className={styles.authFeatureCard}>
-                  <span className={styles.authFeatureIndex}>01</span>
-                  <strong>Single sign-in first</strong>
-                  <p>Keep the first screen focused on access so the rest of the app stays out of the way.</p>
-                </article>
-                <article className={styles.authFeatureCard}>
-                  <span className={styles.authFeatureIndex}>02</span>
-                  <strong>Live operations control</strong>
-                  <p>Approvals, imports, and session tools unlock immediately after authentication.</p>
-                </article>
-                <article className={styles.authFeatureCard}>
-                  <span className={styles.authFeatureIndex}>03</span>
-                  <strong>Responsive motion design</strong>
-                  <p>Blue, orange, and gold accents create a polished company-branded entrance on mobile and desktop.</p>
-                </article>
-              </div>
-
-              <div className={styles.authChipRow}>
-                <Pill tone="warning">Golden trust</Pill>
-                <Pill tone="info">Blue intelligence</Pill>
-                <Pill tone="success">Orange momentum</Pill>
-              </div>
-            </div>
-
-            <form className={`${styles.formCard} ${styles.authFormCard}`} onSubmit={handleLogin}>
-              <div className={styles.formCardHead}>
-                <span className={styles.formBadge}>Admin access</span>
-                <h3>Sign in to continue</h3>
-                <p>Authenticate first to reveal the dashboard and unlock the protected workflow tools.</p>
+            <form
+              className={`${styles.formCard} ${styles.authFormCard}`}
+              onSubmit={handleLogin}
+              style={{
+                width: 'min(100%, 420px)',
+                padding: 'clamp(22px, 4vw, 30px)',
+                borderRadius: '28px',
+                transform: 'perspective(1400px) rotateX(5deg) rotateY(-4deg)',
+                boxShadow: '0 38px 90px rgba(30, 64, 175, 0.24), 0 16px 30px rgba(15, 23, 42, 0.12)',
+              }}
+            >
+              <div
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  gap: '12px',
+                  textAlign: 'center',
+                  marginBottom: '18px',
+                }}
+              >
+                <Image
+                  src="/mindbridge-logo.png"
+                  alt="Mindbridge Innovations"
+                  width={1200}
+                  height={420}
+                  priority
+                  className={styles.authLogo}
+                  style={{
+                    width: 'min(100%, 260px)',
+                    height: 'auto',
+                    objectFit: 'contain',
+                    filter: 'drop-shadow(0 14px 28px rgba(30, 64, 175, 0.18))',
+                  }}
+                />
               </div>
 
               <div className={styles.formFields}>
-                <Field label="Email address" hint="Used as the login identity">
+                <Field label="Email ID">
                   <input
                     className={styles.input}
                     type="email"
@@ -791,33 +778,22 @@ export default function DashboardClient() {
                   />
                 </Field>
 
-                <Field label="Password" hint="Keeps browser autocomplete clean">
+                <Field label="Password">
                   <input
                     className={styles.input}
                     type="password"
                     autoComplete="current-password"
-                    placeholder="Your admin password"
+                    placeholder="Enter your password"
                     value={loginForm.password}
                     onChange={(event) => setLoginForm((current) => ({ ...current, password: event.target.value }))}
                   />
                 </Field>
-
-                <div className={styles.inlineActions}>
-                  <label className={styles.formHint} style={{ display: 'inline-flex', alignItems: 'center', gap: '10px' }}>
-                    <input type="checkbox" defaultChecked />
-                    Remember me
-                  </label>
-                  <button type="button" className={styles.buttonGhost}>
-                    Recover password
-                  </button>
-                </div>
               </div>
 
               <div className={styles.formActions}>
                 <button type="submit" className={styles.buttonPrimary} disabled={busyAction === 'login'}>
                   {busyAction === 'login' ? 'Signing in…' : 'Sign in'}
                 </button>
-                <span className={styles.formHint}>Your session stays saved in this browser.</span>
               </div>
             </form>
           </section>
