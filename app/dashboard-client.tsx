@@ -710,7 +710,58 @@ export default function DashboardClient() {
     pushActivity('Token cleared', 'Admin session removed from browser storage.', 'warning');
   }
 
-  const sessionPreview = tokenReady ? `${adminToken.slice(0, 10)}…${adminToken.slice(-6)}` : 'No token saved';
+  if (!tokenReady) {
+    return (
+      <main className={styles.page}>
+        <div className={styles.shell}>
+          <section className={styles.formCard}>
+            <div className={styles.sectionHeader}>
+              <p className={styles.eyebrow}>Mindbridge Industries</p>
+              <h1 className={styles.title}>Sign in to MBI Opportunities Hub</h1>
+              <p className={styles.description}>
+                Login first to unlock approvals, imports, pending users, and admin actions.
+              </p>
+            </div>
+
+            <form className={styles.formGrid} onSubmit={handleLogin}>
+              <div className={styles.formFields}>
+                <Field label="Email address" hint="Used as the login identity">
+                  <input
+                    className={styles.input}
+                    type="email"
+                    autoComplete="email"
+                    placeholder="admin@mindbridge.in"
+                    value={loginForm.email}
+                    onChange={(event) => setLoginForm((current) => ({ ...current, email: event.target.value }))}
+                  />
+                </Field>
+
+                <Field label="Password" hint="Keeps browser autocomplete clean">
+                  <input
+                    className={styles.input}
+                    type="password"
+                    autoComplete="current-password"
+                    placeholder="Your admin password"
+                    value={loginForm.password}
+                    onChange={(event) => setLoginForm((current) => ({ ...current, password: event.target.value }))}
+                  />
+                </Field>
+              </div>
+
+              <div className={styles.formActions}>
+                <button type="submit" className={styles.buttonPrimary} disabled={busyAction === 'login'}>
+                  {busyAction === 'login' ? 'Signing in…' : 'Sign in'}
+                </button>
+                <span className={styles.formHint}>Sign in first to reveal the dashboard.</span>
+              </div>
+            </form>
+          </section>
+        </div>
+      </main>
+    );
+  }
+
+  const sessionPreview = `${adminToken.slice(0, 10)}…${adminToken.slice(-6)}`;
   const pendingPreview = currentPageUsers;
 
   return (
