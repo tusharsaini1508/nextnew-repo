@@ -733,11 +733,14 @@ export default function DashboardClient() {
               className={`${styles.formCard} ${styles.authFormCard}`}
               onSubmit={handleLogin}
               style={{
-                width: 'min(100%, 420px)',
-                padding: 'clamp(22px, 4vw, 30px)',
+                width: 'min(100%, 380px)',
+                padding: 0,
                 borderRadius: '28px',
-                transform: 'perspective(1400px) rotateX(5deg) rotateY(-4deg)',
-                boxShadow: '0 38px 90px rgba(30, 64, 175, 0.24), 0 16px 30px rgba(15, 23, 42, 0.12)',
+                overflow: 'hidden',
+                transform: 'perspective(1300px) rotateX(4deg) rotateY(-3deg)',
+                boxShadow: '0 28px 68px rgba(30, 64, 175, 0.22), 0 14px 24px rgba(15, 23, 42, 0.10)',
+                background: 'transparent',
+                border: 'none',
               }}
             >
               <div
@@ -745,56 +748,67 @@ export default function DashboardClient() {
                   display: 'flex',
                   flexDirection: 'column',
                   alignItems: 'center',
-                  gap: '12px',
+                  gap: '10px',
                   textAlign: 'center',
-                  marginBottom: '18px',
+                  padding: '18px 18px 14px',
+                  background: '#ffffff',
+                  borderBottom: '1px solid rgba(15, 23, 42, 0.08)',
                 }}
               >
                 <Image
-                    src="/mindbridge-logo.png"
+                  src="/mindbridge-logo.png"
                   alt="Mindbridge Innovations"
                   width={1200}
                   height={420}
                   priority
                   className={styles.authLogo}
                   style={{
-                    width: 'min(100%, 260px)',
+                    width: 'min(100%, 220px)',
                     height: 'auto',
                     objectFit: 'contain',
-                    mixBlendMode: 'multiply',
-                    filter: 'drop-shadow(0 14px 28px rgba(30, 64, 175, 0.12))',
+                    mixBlendMode: 'normal',
+                    filter: 'none',
                   }}
                 />
               </div>
 
-              <div className={styles.formFields}>
-                <Field label="Email ID">
-                  <input
-                    className={styles.input}
-                    type="email"
-                    autoComplete="email"
-                    placeholder="admin@mindbridge.in"
-                    value={loginForm.email}
-                    onChange={(event) => setLoginForm((current) => ({ ...current, email: event.target.value }))}
-                  />
-                </Field>
+              <div
+                style={{
+                  background: 'linear-gradient(180deg, #1d4ed8 0%, #2358ce 100%)',
+                  padding: '18px 18px 20px',
+                  display: 'grid',
+                  gap: '16px',
+                }}
+              >
+                <div className={styles.formFields}>
+                  <Field label="Email ID">
+                    <input
+                      className={styles.input}
+                      type="email"
+                      autoComplete="email"
+                      placeholder="admin@mindbridge.in"
+                      value={loginForm.email}
+                      onChange={(event) => setLoginForm((current) => ({ ...current, email: event.target.value }))}
+                    />
+                  </Field>
 
-                <Field label="Password">
-                  <input
-                    className={styles.input}
-                    type="password"
-                    autoComplete="current-password"
-                    placeholder="Enter your password"
-                    value={loginForm.password}
-                    onChange={(event) => setLoginForm((current) => ({ ...current, password: event.target.value }))}
-                  />
-                </Field>
-              </div>
+                  <Field label="Password">
+                    <input
+                      className={styles.input}
+                      type="password"
+                      autoComplete="current-password"
+                      placeholder="Enter your password"
+                      value={loginForm.password}
+                      onChange={(event) => setLoginForm((current) => ({ ...current, password: event.target.value }))}
+                    />
+                  </Field>
+                </div>
 
-              <div className={styles.formActions}>
-                <button type="submit" className={styles.buttonPrimary} disabled={busyAction === 'login'}>
-                  {busyAction === 'login' ? 'Signing in…' : 'Sign in'}
-                </button>
+                <div className={styles.formActions}>
+                  <button type="submit" className={styles.buttonPrimary} disabled={busyAction === 'login'}>
+                    {busyAction === 'login' ? 'Signing in…' : 'Sign in'}
+                  </button>
+                </div>
               </div>
             </form>
           </section>
