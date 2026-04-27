@@ -801,6 +801,16 @@ export default function DashboardClient() {
                     onChange={(event) => setLoginForm((current) => ({ ...current, password: event.target.value }))}
                   />
                 </Field>
+
+                <div className={styles.inlineActions}>
+                  <label className={styles.formHint} style={{ display: 'inline-flex', alignItems: 'center', gap: '10px' }}>
+                    <input type="checkbox" defaultChecked />
+                    Remember me
+                  </label>
+                  <button type="button" className={styles.buttonGhost}>
+                    Recover password
+                  </button>
+                </div>
               </div>
 
               <div className={styles.formActions}>
