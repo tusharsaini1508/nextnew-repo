@@ -724,7 +724,7 @@ export default function DashboardClient() {
               <div className={styles.authBrandRow}>
                 <div className={styles.authMark} aria-hidden="true">
                   <Image
-                    src="/mindbridge-logo.svg"
+                    src="/mindbridge-logo.png"
                     alt=""
                     width={1200}
                     height={420}
