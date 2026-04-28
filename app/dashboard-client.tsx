@@ -716,83 +716,35 @@ export default function DashboardClient() {
 
   if (!tokenReady) {
     return (
-      <main className={styles.page}>
-        <div className={styles.shell}>
-          <section className={styles.authHero}>
-            <div className={styles.authGlow} aria-hidden="true" />
-            <div className={styles.authGlowTwo} aria-hidden="true" />
-            <div className={styles.authGlowThree} aria-hidden="true" />
-
-            <aside className={styles.authBrandPanel}>
-              <div className={styles.authBrandRow}>
-                <div className={styles.authMark}>
-                  <Image
-                    src="/mindbridge-logo.png"
-                    alt="Mindbridge Innovations"
-                    width={1200}
-                    height={420}
-                    priority
-                    className={styles.authLogo}
-                  />
-                </div>
-
-                <div className={styles.authBrandCopy}>
-                  <span className={`${styles.kicker} ${styles.authEyebrow}`}>Admin access</span>
-                  <h1 className={styles.authTitle}>Sign in to the MBI Opportunities Hub</h1>
-                  <p className={styles.authSubtitle}>A polished control room for approvals, user imports, and API diagnostics.</p>
-                  <p className={styles.authDescription}>
-                    The admin session is preloaded with the seeded credentials below so you can sign in immediately and reach the
-                    protected dashboard without setup friction.
-                  </p>
-                </div>
-
-                <div className={styles.authChipRow}>
-                  <Pill tone="info">Admin ID: sukhpreet22@gmail.com</Pill>
-                  <Pill tone="success">Password prefilled</Pill>
-                  <Pill tone="neutral">Browser session token ready</Pill>
-                </div>
-              </div>
-            </aside>
-
-            <form className={`${styles.formCard} ${styles.authFormCard}`} onSubmit={handleLogin}>
-              <div className={styles.formCardHead}>
-                <span className={styles.formBadge}>Secure sign in</span>
-                <h3>Welcome back</h3>
-                <p>Use the seeded admin credentials to enter the operations dashboard and continue with the live API bridge.</p>
-              </div>
-
-              <div className={styles.formFields}>
-                <Field label="Email ID" hint="Prefilled with the admin account">
-                  <input
-                    className={styles.input}
-                    type="email"
-                    autoComplete="email"
-                    placeholder="sukhpreet22@gmail.com"
-                    value={loginForm.email}
-                    onChange={(event) => setLoginForm((current) => ({ ...current, email: event.target.value }))}
-                  />
-                </Field>
-
-                <Field label="Password" hint="Prefilled for quick access">
-                  <input
-                    className={styles.input}
-                    type="password"
-                    autoComplete="current-password"
-                    placeholder="Skill#4343"
-                    value={loginForm.password}
-                    onChange={(event) => setLoginForm((current) => ({ ...current, password: event.target.value }))}
-                  />
-                </Field>
-              </div>
-
-              <div className={styles.formActions}>
-                <button type="submit" className={styles.buttonPrimary} disabled={busyAction === 'login'}>
-                  {busyAction === 'login' ? 'Signing in…' : 'Sign in'}
-                </button>
-                <span className={styles.formHint}>The session token is stored locally after sign in.</span>
-              </div>
-            </form>
-          </section>
+      <main
+        className={styles.page}
+        style={{
+          display: 'grid',
+          placeItems: 'center',
+          minHeight: '100vh',
+          padding: '24px',
+          background:
+            'radial-gradient(circle at 50% 24%, rgba(59, 130, 246, 0.24) 0%, rgba(59, 130, 246, 0) 28%), radial-gradient(circle at 50% 78%, rgba(245, 158, 11, 0.12) 0%, rgba(245, 158, 11, 0) 24%), linear-gradient(180deg, #070b16 0%, #0a1124 54%, #0d1530 100%)',
+        }}
+      >
+        <div
+          style={{
+            width: 'min(86vw, 420px)',
+            filter: 'drop-shadow(0 18px 36px rgba(5, 10, 25, 0.48))',
+          }}
+        >
+          <Image
+            src="/mindbridge-logo.png"
+            alt="Mindbridge Innovations"
+            width={1200}
+            height={420}
+            priority
+            style={{
+              width: '100%',
+              height: 'auto',
+              display: 'block',
+            }}
+          />
         </div>
       </main>
     );
