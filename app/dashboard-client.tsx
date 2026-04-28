@@ -746,24 +746,6 @@ export default function DashboardClient() {
                   </p>
                 </div>
 
-                <div className={styles.authFeatureGrid}>
-                  <article className={styles.authFeatureCard}>
-                    <span className={styles.authFeatureIndex}>01</span>
-                    <strong>Seeded admin access</strong>
-                    <p>Use the prefilled Mindbridge admin account to authenticate in one click.</p>
-                  </article>
-                  <article className={styles.authFeatureCard}>
-                    <span className={styles.authFeatureIndex}>02</span>
-                    <strong>Protected workflow</strong>
-                    <p>Login unlocks approvals, imports, and token-aware requests across the dashboard.</p>
-                  </article>
-                  <article className={styles.authFeatureCard}>
-                    <span className={styles.authFeatureIndex}>03</span>
-                    <strong>Clean system state</strong>
-                    <p>The UI restores a stable session and avoids the cramped broken layout from before.</p>
-                  </article>
-                </div>
-
                 <div className={styles.authChipRow}>
                   <Pill tone="info">Admin ID: sukhpreet22@gmail.com</Pill>
                   <Pill tone="success">Password prefilled</Pill>
