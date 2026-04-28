@@ -724,27 +724,248 @@ export default function DashboardClient() {
           minHeight: '100vh',
           padding: '24px',
           background:
-            'radial-gradient(circle at 50% 24%, rgba(59, 130, 246, 0.24) 0%, rgba(59, 130, 246, 0) 28%), radial-gradient(circle at 50% 78%, rgba(245, 158, 11, 0.12) 0%, rgba(245, 158, 11, 0) 24%), linear-gradient(180deg, #070b16 0%, #0a1124 54%, #0d1530 100%)',
+            'radial-gradient(circle at 20% 18%, rgba(59, 130, 246, 0.22) 0%, rgba(59, 130, 246, 0) 26%), radial-gradient(circle at 78% 24%, rgba(245, 158, 11, 0.16) 0%, rgba(245, 158, 11, 0) 20%), linear-gradient(180deg, #050816 0%, #08101f 48%, #0d1730 100%)',
         }}
       >
-        <div
-          style={{
-            width: 'min(86vw, 420px)',
-            filter: 'drop-shadow(0 18px 36px rgba(5, 10, 25, 0.48))',
-          }}
-        >
-          <Image
-            src="/mindbridge-logo.png"
-            alt="Mindbridge Innovations"
-            width={1200}
-            height={420}
-            priority
+        <div style={{ width: 'min(100%, 1200px)', perspective: '1800px' }}>
+          <section
             style={{
-              width: '100%',
-              height: 'auto',
-              display: 'block',
+              position: 'relative',
+              display: 'grid',
+              gridTemplateColumns: 'minmax(0, 1.05fr) minmax(360px, 0.95fr)',
+              minHeight: 'min(88vh, 900px)',
+              borderRadius: '36px',
+              overflow: 'hidden',
+              background: 'linear-gradient(135deg, rgba(8, 15, 32, 0.96) 0%, rgba(15, 23, 42, 0.98) 100%)',
+              boxShadow: '0 38px 100px rgba(5, 10, 25, 0.45), 0 1px 0 rgba(255, 255, 255, 0.04) inset',
+              transformStyle: 'preserve-3d',
             }}
-          />
+          >
+            <div
+              aria-hidden="true"
+              style={{
+                position: 'absolute',
+                inset: 0,
+                background:
+                  'radial-gradient(circle at 18% 18%, rgba(59, 130, 246, 0.26) 0%, rgba(59, 130, 246, 0) 24%), radial-gradient(circle at 82% 18%, rgba(245, 158, 11, 0.16) 0%, rgba(245, 158, 11, 0) 20%), linear-gradient(140deg, transparent 0 46%, rgba(59, 130, 246, 0.05) 46% 100%)',
+                pointerEvents: 'none',
+              }}
+            />
+            <div
+              aria-hidden="true"
+              style={{
+                position: 'absolute',
+                top: '-10%',
+                left: '-8%',
+                width: '260px',
+                height: '260px',
+                borderRadius: '999px',
+                background: 'radial-gradient(circle, rgba(59, 130, 246, 0.18) 0%, rgba(59, 130, 246, 0) 66%)',
+                filter: 'blur(18px)',
+                transform: 'translateZ(30px)',
+                pointerEvents: 'none',
+              }}
+            />
+            <div
+              aria-hidden="true"
+              style={{
+                position: 'absolute',
+                right: '-12%',
+                bottom: '-18%',
+                width: '300px',
+                height: '300px',
+                borderRadius: '999px',
+                background: 'radial-gradient(circle, rgba(245, 158, 11, 0.14) 0%, rgba(245, 158, 11, 0) 66%)',
+                filter: 'blur(18px)',
+                transform: 'translateZ(24px)',
+                pointerEvents: 'none',
+              }}
+            />
+
+            <div
+              style={{
+                position: 'relative',
+                zIndex: 1,
+                display: 'grid',
+                alignContent: 'center',
+                justifyItems: 'start',
+                gap: '22px',
+                padding: 'clamp(28px, 4vw, 56px)',
+                color: '#f8fbff',
+              }}
+            >
+              <span
+                style={{
+                  width: 'fit-content',
+                  padding: '8px 12px',
+                  borderRadius: '999px',
+                  border: '1px solid rgba(255, 255, 255, 0.08)',
+                  background: 'rgba(255, 255, 255, 0.08)',
+                  color: '#dbeafe',
+                  fontSize: '12px',
+                  fontWeight: 900,
+                  letterSpacing: '0.18em',
+                  textTransform: 'uppercase',
+                  boxShadow: '0 12px 28px rgba(15, 23, 42, 0.14)',
+                }}
+              >
+                3D login
+              </span>
+
+              <div
+                style={{
+                  width: 'min(100%, 340px)',
+                  filter: 'drop-shadow(0 18px 40px rgba(37, 99, 235, 0.3)) drop-shadow(0 0 26px rgba(59, 130, 246, 0.12))',
+                  transform: 'translateZ(48px)',
+                }}
+              >
+                <Image
+                  src="/mindbridge-logo.png"
+                  alt="Mindbridge Innovations"
+                  width={1200}
+                  height={420}
+                  priority
+                  style={{
+                    width: '100%',
+                    height: 'auto',
+                    display: 'block',
+                  }}
+                />
+              </div>
+
+              <div style={{ display: 'grid', gap: '12px', maxWidth: '560px' }}>
+                <h1
+                  style={{
+                    margin: 0,
+                    fontSize: 'clamp(2.2rem, 4.8vw, 4.3rem)',
+                    lineHeight: 0.96,
+                    letterSpacing: '-0.06em',
+                    textWrap: 'balance',
+                  }}
+                >
+                  Sign in to the MBI Opportunities Hub
+                </h1>
+                <p style={{ margin: 0, color: 'rgba(226, 232, 240, 0.86)', lineHeight: 1.75, fontSize: '1.02rem' }}>
+                  A 3D-styled secure login for the Mindbridge admin session. The credentials are prefilled so you can sign in
+                  immediately.
+                </p>
+              </div>
+
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
+                <span className={`${styles.pill} ${styles.pill_info}`}>Admin ID: sukhpreet22@gmail.com</span>
+                <span className={`${styles.pill} ${styles.pill_success}`}>Password prefilled</span>
+                <span className={`${styles.pill} ${styles.pill_neutral}`}>Protected routes ready</span>
+              </div>
+            </div>
+
+            <form
+              onSubmit={handleLogin}
+              style={{
+                position: 'relative',
+                zIndex: 1,
+                display: 'grid',
+                gap: '16px',
+                alignContent: 'center',
+                padding: 'clamp(24px, 3.5vw, 44px)',
+                borderLeft: '1px solid rgba(148, 163, 184, 0.14)',
+                background:
+                  'linear-gradient(180deg, rgba(255, 255, 255, 0.995), rgba(247, 250, 255, 0.975)), #ffffff',
+                boxShadow: 'inset 1px 0 0 rgba(255, 255, 255, 0.5)',
+                transform: 'perspective(1400px) rotateY(-8deg) rotateX(4deg)',
+                transformOrigin: 'left center',
+              }}
+            >
+              <div
+                aria-hidden="true"
+                style={{
+                  position: 'absolute',
+                  inset: '-14% auto auto -14%',
+                  width: '220px',
+                  height: '220px',
+                  borderRadius: '999px',
+                  background: 'radial-gradient(circle, rgba(59, 130, 246, 0.14) 0%, rgba(59, 130, 246, 0) 68%)',
+                  filter: 'blur(16px)',
+                }}
+              />
+              <div
+                aria-hidden="true"
+                style={{
+                  position: 'absolute',
+                  right: '-12%',
+                  bottom: '-18%',
+                  width: '260px',
+                  height: '260px',
+                  borderRadius: '999px',
+                  background: 'radial-gradient(circle, rgba(245, 158, 11, 0.1) 0%, rgba(245, 158, 11, 0) 68%)',
+                  filter: 'blur(18px)',
+                }}
+              />
+
+              <div style={{ position: 'relative', zIndex: 1, display: 'grid', gap: '12px' }}>
+                <span
+                  style={{
+                    width: 'fit-content',
+                    padding: '8px 12px',
+                    borderRadius: '999px',
+                    background: 'rgba(37, 99, 235, 0.1)',
+                    color: '#1d4ed8',
+                    border: '1px solid rgba(37, 99, 235, 0.08)',
+                    fontSize: '12px',
+                    fontWeight: 900,
+                    letterSpacing: '0.16em',
+                    textTransform: 'uppercase',
+                  }}
+                >
+                  Secure sign in
+                </span>
+                <h2
+                  style={{
+                    margin: 0,
+                    fontSize: 'clamp(2rem, 4vw, 3.1rem)',
+                    lineHeight: 1,
+                    letterSpacing: '-0.05em',
+                    color: '#0f172a',
+                  }}
+                >
+                  Welcome back
+                </h2>
+                <p style={{ margin: 0, color: '#475569', lineHeight: 1.7 }}>
+                  Use the seeded admin credentials to unlock the dashboard and continue with the live API bridge.
+                </p>
+              </div>
+
+              <div style={{ position: 'relative', zIndex: 1, display: 'grid', gap: '14px' }}>
+                <Field label="Email ID" hint="Prefilled with the admin account">
+                  <input
+                    className={styles.input}
+                    value={loginForm.email}
+                    onChange={(event) => setLoginForm((current) => ({ ...current, email: event.target.value }))}
+                    type="email"
+                    placeholder="admin@mindbridge.in"
+                    autoComplete="username"
+                  />
+                </Field>
+
+                <Field label="Password" hint="Ready for immediate sign in">
+                  <input
+                    className={styles.input}
+                    value={loginForm.password}
+                    onChange={(event) => setLoginForm((current) => ({ ...current, password: event.target.value }))}
+                    type="password"
+                    placeholder="••••••••"
+                    autoComplete="current-password"
+                  />
+                </Field>
+              </div>
+
+              <div style={{ position: 'relative', zIndex: 1, display: 'grid', gap: '10px' }}>
+                <button type="submit" className={styles.buttonPrimary} disabled={busyAction === 'login'}>
+                  {busyAction === 'login' ? 'Signing in…' : 'Sign in'}
+                </button>
+                <span className={styles.formHint}>The admin token will be saved locally after sign in.</span>
+              </div>
+            </form>
+          </section>
         </div>
       </main>
     );
